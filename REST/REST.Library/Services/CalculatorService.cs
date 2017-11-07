@@ -14,17 +14,17 @@ namespace REST.Library.Services
 
         public double Div(double value1, double value2)
         {
-            throw new NotImplementedException();
+            return value1 / value2;
         }
 
         public double Mul(double value1, double value2)
         {
-            throw new NotImplementedException();
+            return value1 * value2;
         }
 
         public double Sub(double value1, double value2)
         {
-            throw new NotImplementedException();
+            return value1 - value2;
         }
     }
 }
