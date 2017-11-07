@@ -14,7 +14,16 @@ namespace REST.Library.Services
 
         public double Div(double value1, double value2)
         {
-            return value1 / value2;
+            if (value2 == 0)
+                throw new DivideByZeroException();
+            try
+            {
+                return value1 / value2;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public double Mul(double value1, double value2)

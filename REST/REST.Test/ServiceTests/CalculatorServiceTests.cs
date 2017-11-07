@@ -54,9 +54,14 @@ namespace REST.Test.ServiceTests
             Assert.AreEqual( 2, result, "Should division values successfully");
         }
 
-        public void Should_Return_NullException()
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException) , "Should throw exception when dividing by zero")]
+        public void Should_Not_Divide_by_zero()
         {
+            int value1 = 20;
+            int value2 = 0;
 
+            double result = _calculatorService.Div(value1, value2);
         }
     }
 }
