@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\REST.Data\REST.Data.csproj" />
     <ProjectReference Include="..\REST.Library\REST.Library.csproj" />
   </ItemGroup>
 

@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using REST.Data;
+using REST.Library.IServices;
+using REST.Library.Services;
 
 namespace REST.Web
 {
@@ -23,6 +27,9 @@ namespace REST.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase());
+
+            services.AddScoped<ICalculatorService, CalculatorService> ();
             services.AddMvc();
         }
 
