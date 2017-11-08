@@ -22,5 +22,10 @@ namespace REST.Data.InMemoryRepository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<CalculatorHistory> GetList(string action)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

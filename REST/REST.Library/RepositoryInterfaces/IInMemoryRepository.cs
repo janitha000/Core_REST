@@ -9,6 +9,6 @@ namespace REST.Library.RepositoryInterfaces
         T Get();
         IEnumerable<T> GetList();
         void Add(T item);
-
+        IEnumerable<T> GetList(string action);
     }
 }

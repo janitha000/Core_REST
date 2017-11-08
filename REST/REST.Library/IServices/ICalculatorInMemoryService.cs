@@ -11,5 +11,8 @@ namespace REST.Library.IServices
         CalculatorHistory Get();
 
         IEnumerable<CalculatorHistory> GetAll();
+        IEnumerable<CalculatorHistory> GetByAction(string action);
+
+
     }
 }
