@@ -28,12 +28,12 @@ namespace REST.Library.Services
 
         public IEnumerable<CalculatorHistory> GetAll()
         {
-            throw new NotImplementedException();
+            return _calcultaorRepository.GetList();
         }
 
         public IEnumerable<CalculatorHistory> GetByAction(string action)
         {
-            throw new NotImplementedException();
+            return _calcultaorRepository.GetList(action);
         }
     }
 }

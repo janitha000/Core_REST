@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using REST.Data;
 using REST.Library.IServices;
 using REST.Library.Services;
+using REST.Library.RepositoryInterfaces;
+using REST.Library.Entities;
+using REST.Data.InMemoryRepository;
 
 namespace REST.Web
 {
@@ -30,6 +33,10 @@ namespace REST.Web
             services.AddDbContext<InMemoryContext>(opt => opt.UseInMemoryDatabase("CalculatorHistory"));
 
             services.AddScoped<ICalculatorService, CalculatorService> ();
+            services.AddScoped<IInMemoryRepository<CalculatorHistory>, CalculatorInMemoryRepository> ();
+            services.AddScoped<ICalculatorInMemoryService, CalculatorInMemoryService> ();
+
+            
             services.AddMvc();
         }
 
