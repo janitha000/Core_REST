@@ -8,6 +8,10 @@ namespace REST.Data
 {
     public class InMemoryContext : DbContext
     {
+        public InMemoryContext()
+        {
+        }
+
         public InMemoryContext(DbContextOptions<InMemoryContext> options) : base(options)
         {
 

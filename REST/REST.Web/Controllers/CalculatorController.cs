@@ -19,6 +19,16 @@ namespace REST.Web.Controllers
             _calculatorService = calculatorService ?? throw new ArgumentNullException();
         }
 
+        [HttpGet("{Add}")]
+        [ProducesResponseType(200)]
+        public IActionResult Add(double val1, double val2)
+        {
+            double result = _calculatorService.Add(val1, val2);
+            return Ok(result);
+        }
+
+
+
 
 
     }
