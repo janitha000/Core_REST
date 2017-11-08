@@ -15,6 +15,7 @@ using REST.Library.Services;
 using REST.Library.RepositoryInterfaces;
 using REST.Library.Entities;
 using REST.Data.InMemoryRepository;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace REST.Web
 {
@@ -36,7 +37,11 @@ namespace REST.Web
             services.AddScoped<IInMemoryRepository<CalculatorHistory>, CalculatorInMemoryRepository> ();
             services.AddScoped<ICalculatorInMemoryService, CalculatorInMemoryService> ();
 
-            
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             services.AddMvc();
         }
 
@@ -47,6 +52,13 @@ namespace REST.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseMvc();
         }
