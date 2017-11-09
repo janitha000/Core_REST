@@ -97,5 +97,12 @@ namespace REST.Test.ServiceTests
             Assert.AreSame(expectedResults, result, "Should return only Div history");
         }
 
+        [TestMethod]
+        public void Should_ADD_Database()
+        {
+
+            CalculatorHistory calculatorHistory =  new CalculatorHistory() { Action = "Div", Value1 = 20, Value2 = 10, Result = 2 };
+        }
+
     }
 }

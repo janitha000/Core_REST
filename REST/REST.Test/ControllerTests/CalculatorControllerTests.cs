@@ -37,34 +37,34 @@ namespace REST.Test.ControllerTests
         [TestMethod]
         public async Task IShould_Return_Sub()
         {
-            var response = await _client.GetAsync("api/Calculator/Sub?val1=20&val2=10");
+            var response = await _client.GetAsync("api/Calculator/calculate?action=Sub&val1=20&val2=10");
             response.EnsureSuccessStatusCode();
 
             var responseString = response.Content.ReadAsStringAsync();
 
-            Assert.Equals(10, responseString);
+            Assert.AreEqual(10, responseString.Result);
         }
 
         [TestMethod]
         public async Task IShould_Return_Mul()
         {
-            var response = await _client.GetAsync("api/Calculator/Mul?val1=10&val2=20");
+            var response = await _client.GetAsync("api/Calculator/calculate?action=Mul&val1=10&val2=20");
             response.EnsureSuccessStatusCode();
 
             var responseString = response.Content.ReadAsStringAsync();
 
-            Assert.Equals(200, responseString);
+            Assert.AreEqual(200, responseString.Result);
         }
 
         [TestMethod]
         public async Task IShould_Return_Div()
         {
-            var response = await _client.GetAsync("api/Calculator/Div?val1=20&val2=10");
+            var response = await _client.GetAsync("api/Calculator/calculate?action=Div&val1=20&val2=10");
             response.EnsureSuccessStatusCode();
 
             var responseString = response.Content.ReadAsStringAsync();
 
-            Assert.Equals(2, responseString);
+            Assert.AreEqual(2, responseString.Result);
         }
 
         [TestMethod]
