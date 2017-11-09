@@ -42,6 +42,13 @@ namespace REST.Web
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
+            services.AddDistributedSqlServerCache(options =>
+            {
+                options.ConnectionString = @"Data Source=JANITHAT;Initial Catalog=DistCache;Integrated Security=True;";
+                options.SchemaName = "dbo";
+                options.TableName = "TestCache";
+            });
+
             services.AddMvc();
         }
 
