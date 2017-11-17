@@ -19,11 +19,11 @@ namespace REST.Web.Controllers
             _calculatorService = calculatorService ?? throw new ArgumentNullException();
         }
 
-        [HttpGet("{Add}")]
+        [HttpGet("calculate/{order}")]
         [ProducesResponseType(200)]
-        public IActionResult Add(double val1, double val2)
+        public IActionResult Calculate(string order,double val1, double val2)
         {
-            double result = _calculatorService.Add(val1, val2);
+            double result = _calculatorService.Calculate(order, val1, val2);
             return Ok(result);
         }
 
