@@ -63,5 +63,24 @@ namespace REST.Test.ServiceTests
 
             double result = _calculatorService.Div(value1, value2);
         }
+
+        [TestMethod]
+        public void Calculate_Should_Success()
+        {
+            int value1 = 20;
+            int value2 = 10;
+
+            double result1 = _calculatorService.Calculate("Add", value1, value2);
+            Assert.AreEqual(30, result1, "Should calculate Add values successfully");
+
+            double result2 = _calculatorService.Calculate("Sub", value1, value2);
+            Assert.AreEqual(10, result2, "Should calculate Sub values successfully");
+
+            double result3 = _calculatorService.Calculate("Mul", value1, value2);
+            Assert.AreEqual(200, result3, "Should calculate Mul values successfully");
+
+            double result4 = _calculatorService.Calculate("Div", value1, value2);
+            Assert.AreEqual(2, result4, "Should calculate Div values successfully");
+        }
     }
 }
