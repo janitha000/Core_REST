@@ -9,7 +9,6 @@ namespace REST.Library.IServices
     {
         void Add(CalculatorHistory item);
         CalculatorHistory Get();
-
         IEnumerable<CalculatorHistory> GetAll();
         IEnumerable<CalculatorHistory> GetByAction(string action);
 

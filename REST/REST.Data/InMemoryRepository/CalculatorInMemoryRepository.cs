@@ -11,7 +11,11 @@ namespace REST.Data.InMemoryRepository
     {
         public void Add(CalculatorHistory item)
         {
-            throw new NotImplementedException();
+            using(InMemoryContext context = new InMemoryContext())
+            {
+                context.CalculatorInMemoryHistory.Add(item);
+                context.SaveChanges();
+            }
         }
 
         public CalculatorHistory Get()

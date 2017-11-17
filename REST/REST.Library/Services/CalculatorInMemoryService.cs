@@ -18,7 +18,7 @@ namespace REST.Library.Services
 
         public void Add(CalculatorHistory item)
         {
-            throw new NotImplementedException();
+            _calcultaorRepository.Add(item);
         }
 
         public CalculatorHistory Get()
