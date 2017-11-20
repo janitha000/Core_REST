@@ -9,13 +9,19 @@ namespace REST.Data.InMemoryRepository
 {
     public class CalculatorInMemoryRepository : IInMemoryRepository<CalculatorHistory>
     {
+        private InMemoryContext _context;
+
+        public CalculatorInMemoryRepository(InMemoryContext context)
+        {
+            _context = context;
+        }
+
         public void Add(CalculatorHistory item)
         {
-            using(InMemoryContext context = new InMemoryContext())
-            {
-                context.CalculatorInMemoryHistory.Add(item);
-                context.SaveChanges();
-            }
+            _context.CalculatorInMemoryHistory.Add(item);
+            _context.SaveChanges();
+
+            
         }
 
         public CalculatorHistory Get()
@@ -26,10 +32,9 @@ namespace REST.Data.InMemoryRepository
         public IEnumerable<CalculatorHistory> GetList()
         {
             IEnumerable<CalculatorHistory> history;
-            using(InMemoryContext context = new InMemoryContext())
-            {
-                history = context.CalculatorInMemoryHistory.AsEnumerable();
-            }
+
+            history = _context.CalculatorInMemoryHistory.AsEnumerable();
+
 
             return history;
         }
@@ -37,10 +42,9 @@ namespace REST.Data.InMemoryRepository
         public IEnumerable<CalculatorHistory> GetList(string action)
         {
             IEnumerable<CalculatorHistory> history;
-            using (InMemoryContext context = new InMemoryContext())
-            {
-                history = context.CalculatorInMemoryHistory.Where(x => x.Action == action);
-            }
+
+                history = _context.CalculatorInMemoryHistory.Where(x => x.Action == action);
+            
 
             return history;
         }
