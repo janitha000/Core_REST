@@ -19,9 +19,7 @@ namespace REST.Data.InMemoryRepository
         public void Add(CalculatorHistory item)
         {
             _context.CalculatorInMemoryHistory.Add(item);
-            _context.SaveChanges();
-
-            
+            _context.SaveChanges();         
         }
 
         public CalculatorHistory Get()

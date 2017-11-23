@@ -46,6 +46,14 @@ namespace REST.Web.Controllers
             return Created("history", calculatorHistory);           
         }
 
+        [HttpGet("history/{order}")]
+        [ProducesResponseType(200)]
+        public IActionResult GetHistoryByAction(string order)
+        {
+            IEnumerable<CalculatorHistory> histories = _calculatorMemoryService.GetByAction(order);
+            return Ok(histories);
+        }
+
 
 
 
